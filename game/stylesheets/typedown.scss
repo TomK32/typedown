@@ -1,0 +1,38 @@
+
+body {
+  background-color: #002;
+  color: white;
+}
+#game {
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+}
+
+input[type="submit"], input[type="text"] {
+  border: 2px solid #AAF;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px;
+}
+
+input[type="text"] {
+  background-color: #DDF;
+  color: #000;
+  font-size: 18px;
+  line-height: 1em;
+  padding: 8px 4px 8px 4px;
+  width: 200px;
+}
+input[type="submit"]  {
+  border: 2px solid #AAF;
+  background-color: #226;
+  color: white;
+  font-style: 14px;
+  line-height: 1em;
+  padding: 4px 8px 4px 8px;
+}
+  
