@@ -5,7 +5,7 @@ class Typedown.Views.Game.Main extends Backbone.View
   events: []
 
   initialize: ->
-    _.bindAll(@, 'render', 'renderOne', 'error')
+    _.bindAll(@, 'render', 'renderOne', 'error', 'clear')
     $(@el).width($('body').width())
 
     jaws.view = @
@@ -22,11 +22,12 @@ class Typedown.Views.Game.Main extends Backbone.View
   clear: ->
     @context = jaws.context
     @context.clearRect(0,0,jaws.width,jaws.height)
+    clearTimeout(@clearing)
+    @clearing = setTimeout(@clear, 5000)
 
   render: ->
     @context.textAlign = 'center'
     @context.textBaseline = 'middle'
-    console.log(@game);
     @renderOne(@game.position)
 
     @stats.render({level: @game.level})
