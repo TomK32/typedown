@@ -1,0 +1,32 @@
+
+body {
+  background-color: #002;
+  color: white;
+  font-family: 'Nova Square', cursive;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #DDF;
+}
+
+#game {
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+}
+
+header, #header {
+  padding: 2px 10px;
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
+}
+footer, #footer {
+  position: fixed;
+  bottom: 0;
+  padding: 2px 10px;
+}
+
