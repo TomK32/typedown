@@ -19,6 +19,7 @@ class Typedown.Controllers.Game
     else if String(@position).match(new RegExp(@currentNumber + String(key)))
       @currentNumber += String(key)
     else
+      @currentNumber = ""
       jaws.view.error()
       @position = @level
 

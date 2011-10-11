@@ -13,8 +13,8 @@ class Typedown.Views.Game.Stats extends Backbone.View
     $.extend(@last_options, options)
     @context.fillStyle = '#002'
     @context.fillRect(0,0,@context.canvas.width, @context.canvas.height)
-    return if Math.random() < 0.1
+    return if Math.random() < 0.05
     @context.font = '12px "Nova Square"'
     @context.fillStyle = '#AAF'
-    @context.fillText('Level: ' + @last_options.level, 0, @context.canvas.height-4)
+    @context.fillText('Level: ' + @last_options.level, 4, @context.canvas.height-4)
 

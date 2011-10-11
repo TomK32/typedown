@@ -6,7 +6,6 @@ class Typedown.Views.Game.Main extends Backbone.View
 
   initialize: ->
     _.bindAll(@, 'render', 'renderOne', 'error', 'clear')
-    $(@el).width($('body').width())
 
     jaws.view = @
     jaws.canvas = $(@el)
@@ -30,7 +29,7 @@ class Typedown.Views.Game.Main extends Backbone.View
     @context.textBaseline = 'middle'
     @renderOne(@game.position)
 
-    @stats.render({level: @game.level})
+    @stats.render({level: [@game.position, @game.level].join('/')})
 
   renderOne: (text)->
     rand = (b) -> Math.floor(Math.random() * b)
@@ -44,7 +43,7 @@ class Typedown.Views.Game.Main extends Backbone.View
   error: () ->
     @clear()
     @stats.render({level: jaws.level})
-    @context.font = '20px "Nova Square"'
+    @context.font = '40px "Nova Square"'
     @context.fillStyle = '#FFF'
-    @context.fillText('ERROR', @context.canvas.width / 2, (@context.canvas.height / 2)-30)
-    @context.fillText('You will live for only 1 more try', @context.canvas.width / 2, (@context.canvas.height / 2)+10)
+    @context.fillText('ERROR', @context.canvas.width / 2, (@context.canvas.height / 2)-40)
+    @context.fillText('You will live for only 1 more try', @context.canvas.width / 2, (@context.canvas.height / 2)+20)
