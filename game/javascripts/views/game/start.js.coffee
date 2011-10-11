@@ -16,4 +16,3 @@ class Typedown.Views.Game.Start extends Backbone.View
 
   start: (event) ->
     event.preventDefault();
-    console.log("sad");

@@ -31,7 +31,6 @@ class Typedown.Views.Game.Background extends Backbone.View
     seed = rand(1000)
     @context.font = rand(100)+'px "Nova Square"'
     @context.fillStyle = 'rgba(' + [rand(255), 256-rand(64), 256-rand(64),Math.random()].join(',') + ')'
-    console.log(@context.fillStyle);
     @context.fillText(letter, (seed*131)%@context.canvas.width, (seed*119)%@context.canvas.height)
     true
 
