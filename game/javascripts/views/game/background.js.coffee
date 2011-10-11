@@ -9,9 +9,9 @@ class Typedown.Views.Game.Background extends Backbone.View
     _.bindAll(@, 'render', 'clear')
     # necessary or it looks ugly scaled
     @context =  $(@.el)[0].getContext('2d')
-    @clear()
     setInterval(@render, 500, @)
     setInterval(@clear, 20000, @)
+    @clear()
     @render()
     @
 
@@ -19,8 +19,6 @@ class Typedown.Views.Game.Background extends Backbone.View
     @renderOne(letter) for letter in @letters
 
   clear: ->
-    $(@.el).attr('width', $(@.el).width());
-    $(@.el).attr('height', $(@.el).height());
     @context.save();
     @context.setTransform(1, 0, 0, 1, 0, 0);
     @context.clearRect(0, 0, @context.canvas.width, @context.canvas.height);

@@ -3,16 +3,12 @@ window.Typedown.Views.Game ||= {}
 class Typedown.Views.Game.Main extends Backbone.View
   el: '#game'
   template: JST["templates/game/main"]
-  events:
-    "keyup window": ""
-    "form submit": "start"
+  events: []
 
   initialize: ->
+    @game_controller = jaws.start(Typedown.Controllers.Game)
     @render()
     @
 
   render: ->
     $(@.el).html(@.template)
-
-  start: (event) ->
-    event.preventDefault();
