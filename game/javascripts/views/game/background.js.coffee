@@ -9,7 +9,7 @@ class Typedown.Views.Game.Background extends Backbone.View
     _.bindAll(@, 'render', 'clear')
     # necessary or it looks ugly scaled
     @context =  $(@.el)[0].getContext('2d')
-    setInterval(@render, 500, @)
+    setInterval(@render, 300, @)
     setInterval(@clear, 20000, @)
     @clear()
     @render()
@@ -27,9 +27,10 @@ class Typedown.Views.Game.Background extends Backbone.View
   renderOne: (letter) ->
     rand = (b) -> Math.floor(Math.random() * b)
     seed = rand(1000)
-    @context.font = rand(100)+'px "Nova Square"'
+    font_size = rand(100)
+    @context.font = font_size+'px "Nova Square"'
     @context.fillStyle = 'rgba(' + [rand(255), 256-rand(64), 256-rand(64),Math.random()].join(',') + ')'
-    @context.fillText(letter, (seed*131)%@context.canvas.width, (seed*119)%@context.canvas.height)
+    @context.fillText(letter, (seed*131)%(@context.canvas.width+font_size)-font_size, (seed*119)%(@context.canvas.height+2*font_size)-font_size)
     true
 
 
