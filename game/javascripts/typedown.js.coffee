@@ -11,4 +11,5 @@
 
 $ ->
   window.game = new Typedown.Views.Game.Start()
+  window.background = new Typedown.Views.Game.Background()
   true
