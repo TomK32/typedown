@@ -13,11 +13,20 @@ a {
 }
 
 #game {
-  width: 800px;
-  height: 600px;
   margin: 0 auto;
   position: relative;
   z-index: 2000;
+}
+
+#stats, #main {
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2000;
+}
+#stats {
+  z-index: 3000;
 }
 
 header, #header {

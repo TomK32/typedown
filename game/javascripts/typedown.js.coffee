@@ -12,4 +12,5 @@
 
 $(document).ready ->
   window.game = new Typedown.Views.Game.Start()
+  $('[name=player_name]').focus()
   true
