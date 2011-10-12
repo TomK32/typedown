@@ -19,5 +19,5 @@ class Typedown.Views.Game.Start extends Backbone.View
   start: (event) ->
     event.preventDefault();
     @background.remove()
-    @remove()
     window.game = new Typedown.Views.Game.Main()
+    @remove()
