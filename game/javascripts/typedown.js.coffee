@@ -9,6 +9,7 @@
 //= require_tree ./templates
 //= require_tree ./models
 //= require_tree ./views
+//= require_tree ./renderer
 
 $(document).ready ->
   window.game = new Typedown.Views.Game.Start()

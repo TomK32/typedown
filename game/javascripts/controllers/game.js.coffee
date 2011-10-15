@@ -29,7 +29,7 @@ class Typedown.Controllers.Game
     if @position == 0
       @level += 1
       @position = @level
-      jaws.view.clear()
+      jaws.view.nextLevel()
 
   draw: ->
     jaws.view.render()
