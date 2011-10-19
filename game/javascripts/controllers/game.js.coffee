@@ -51,7 +51,7 @@ class Typedown.Controllers.Game
       @position = @level
       jaws.view.nextLevel()
       @sounds.play('nextLevel')
-      if @level % 5 == 0
+      if @level % 5 == 1
         @lives += 1
         jaws.view.bonusLife()
         @sounds.play('bonusLife')
