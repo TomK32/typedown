@@ -1,8 +1,11 @@
 //= require zepto.min.js
-//= require underscore-min.js
+//= require underscore-min
 //= require backbone-min
 //= require typedown-backbone
 
+//= require audio.js
+//= require jsfx.js
+//= require jsfxlib.js
 //= require jaws
 
 //= require_tree ./controllers

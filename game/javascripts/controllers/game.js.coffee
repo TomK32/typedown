@@ -1,16 +1,22 @@
 class Typedown.Controllers.Game
-  level: 1
-  position: 1
-  currentNumber: ''
+  defaults:
+    level: 1
+    position: 1
+    currentNumber: ''
+    lives: 3
+    error: false
 
-  initialize: ->
-    #
+  constructor: ->
+    @
 
   setup: ->
-    _.bindAll(@, 'pressed')
+    _.bindAll(@, 'removeError', 'pressed')
     jaws.on_keydown([0..9].join('').split(''), @pressed)
+    @sounds = new Typedown.Controllers.Sounds()
+    _.extend(@, @defaults)
 
   pressed: (key) ->
+    return if @error
 
     if parseInt(key) == @position
       @nextPosition()
@@ -20,8 +26,22 @@ class Typedown.Controllers.Game
       @currentNumber += String(key)
     else
       @currentNumber = ""
-      jaws.view.error()
-      @position = @level
+      @lives -= 1
+      @sounds.play('error')
+      if @lives > 0
+        jaws.view.error(@level, @lives)
+        @error = true
+        @error = setTimeout(@removeError, 300)
+        @position = @level
+      else
+        clearTimeout(@error)
+        @error = true
+        jaws.game_loop.stop()
+        jaws.view.gameOver()
+
+  removeError: () ->
+    jaws.view.clear()
+    @error = false
 
   nextPosition: ->
     @currentNumber = ""
@@ -30,6 +50,12 @@ class Typedown.Controllers.Game
       @level += 1
       @position = @level
       jaws.view.nextLevel()
+      @sounds.play('nextLevel')
+      if @level % 5 == 0
+        @lives += 1
+        jaws.view.bonusLife()
+        @sounds.play('bonusLife')
 
   draw: ->
-    jaws.view.render()
+    if !@error
+      jaws.view.render()

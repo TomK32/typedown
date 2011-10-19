@@ -5,7 +5,6 @@ class window.Typedown.Renderer.BasicGreen extends Typedown.Renderer.Basic
 
   drawLine: (x, lines) ->
     x = (x * @context.canvas.width / lines) + (@context.canvas.width/lines)/2
-    console.log(x);
     @context.strokeStyle = @color(0.2)
     @context.lineWidth = @context.canvas.width / 20 / lines
     @context.beginPath()
